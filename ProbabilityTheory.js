@@ -349,7 +349,7 @@ var init = () => {
         let getDesc = (level) => "c_4=2^{" + level + "}";
         let getInfo = (level) => "c_4=" + getC4(level).toString(0);
         c4 = theory.createUpgrade(4, currency, new ExponentialCost(1e60, 32));
-        c4.maxLevel = 16;
+        c4.maxLevel = 32;
         c4.getDescription = (_) => Utils.getMath(getDesc(c4.level));
         c4.getInfo = (amount) => Utils.getMathTo(getInfo(c4.level), getInfo(c4.level + amount));
     }
