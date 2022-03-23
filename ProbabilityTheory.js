@@ -135,7 +135,7 @@ var skillData = [
         effect: (level) => 1 + level * .05,
         effectText: (level) => "+0.05 / level",
         starValue: [10, 20, 40, 80, 160, 320],
-        starCost: new LinearCost(0, 10),
+        starCost: new LinearCost(0, 5),
     }, 
     {
         name: (amount) => "Booster $\\rho_1$",
@@ -317,7 +317,7 @@ var init = () => {
     {
         let getDesc = (level) => "b_1=" + (getB1(level) / (r[7] + 1)).toString(0) + (perm4.level > 0 ? "\\times (r_8 + 1)" : "");
         let getInfo = (level) => "b_1=" + getB1(level).toString();
-        b1 = theory.createUpgrade(0, currency, new ExponentialCost(5, Math.log2(1.5)));
+        b1 = theory.createUpgrade(0, currency, new ExponentialCost(5, Math.log2(1.3)));
         b1.getDescription = (_) => Utils.getMath(getDesc(b1.level));
         b1.getInfo = (amount) => Utils.getMathTo(getInfo(b1.level), getInfo(b1.level + amount));
     }
@@ -325,7 +325,7 @@ var init = () => {
     {
         let getDesc = (level) => "c_1=" + (getC1(level) / (r[6] + 1)).toString(0) + (perm3.level > 0 ? "\\times (r_7 + 1)" : "");
         let getInfo = (level) => "c_1=" + getC1(level).toString();
-        c1 = theory.createUpgrade(1, currency, new ExponentialCost(10, Math.log2(2)));
+        c1 = theory.createUpgrade(1, currency, new ExponentialCost(10, Math.log2(1.8)));
         c1.getDescription = (_) => Utils.getMath(getDesc(c1.level));
         c1.getInfo = (amount) => Utils.getMathTo(getInfo(c1.level), getInfo(c1.level + amount));
     }
@@ -333,14 +333,14 @@ var init = () => {
     {
         let getDesc = (level) => "c_2=2^{" + level + "}";
         let getInfo = (level) => "c_2=" + getC2(level).toString(0);
-        c2 = theory.createUpgrade(2, currency, new ExponentialCost(32, Math.log2(20)));
+        c2 = theory.createUpgrade(2, currency, new ExponentialCost(32, Math.log2(18)));
         c2.getDescription = (_) => Utils.getMath(getDesc(c2.level));
         c2.getInfo = (amount) => Utils.getMathTo(getInfo(c2.level), getInfo(c2.level + amount));
     }
     // c3
     {
         let getDesc = (level) => "c_3=" + getC3(level).toString(0);
-        c3 = theory.createUpgrade(3, currency, new ExponentialCost(1e40, Math.log2(120)));
+        c3 = theory.createUpgrade(3, currency, new ExponentialCost(1e40, Math.log2(108)));
         c3.getDescription = (_) => Utils.getMath(getDesc(c3.level));
         c3.getInfo = (amount) => Utils.getMathTo(getDesc(c3.level), getDesc(c3.level + amount));
     }
