@@ -135,7 +135,7 @@ var skillData = [
         effect: (level) => 1 + level * .5,
         effectText: (level) => "+0.5 / level",
         starValue: [10, 20, 40, 80, 160, 320],
-        starCost: new LinearCost(0, 3),
+        starCost: new LinearCost(0, 2),
     }, 
     {
         name: (amount) => "Booster $\\rho_1$",
