@@ -1657,7 +1657,7 @@ var getEquationOverlay = () => ui.createGrid({
         if (e.type != TouchType.PRESSED) return;
         if (stage == 2) {
             if (gacha < 1) return;
-            let multi = Math.min(gacha, 1 + gachaBulk.level);
+            let multi = Math.min(gacha, 100*(1 + gachaBulk.level));
             let odds = [5, 4, 3, 2, 1, 0].map((x) => Math.pow(5 - gachaValue.level * .2, x));
             for (let n = 0; n < multi; n++) {
                 let osum = odds.reduce((x, y) => x + y);
